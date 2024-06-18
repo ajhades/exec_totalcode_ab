@@ -18,4 +18,16 @@ class OrderController
         $orders = $this->orderModel->getAllOrders();
         echo json_encode($orders);
     }
+
+    public function orderByMonthCreatedAt($month)
+    {
+        $orders = $this->orderModel->getOrdersByMonthCreated($month);
+        echo json_encode($orders);
+    }
+
+    public function orderByStatus($status)
+    {
+        $orders = $this->orderModel->getOrdersByStatus($status);
+        echo json_encode($orders);
+    }
 }
