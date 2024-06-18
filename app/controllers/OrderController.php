@@ -13,7 +13,7 @@ class OrderController
         $this->orderModel = new Order();
     }
 
-    public function getOrders()
+    public function index()
     {
         $orders = $this->orderModel->getAllOrders();
         echo json_encode($orders);

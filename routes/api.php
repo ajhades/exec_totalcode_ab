@@ -7,4 +7,8 @@ $orderController = new OrderController();
 $router->get('/', function() {
     echo 'About Page Contents';
 });
-$router->get('/orders', 'OrderController@getOrders');
+
+$router->get('/orders', function(){
+    $controller = new OrderController();
+    $controller->index();
+});
