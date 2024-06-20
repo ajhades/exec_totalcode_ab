@@ -50,3 +50,12 @@ $router->get('/orders/status/(\d+)', function($status){
     $controller = new OrderController();
     $controller->orderByStatus($status);
 });
+
+$router->get('/status', function(){
+    $controller = new OrderController();
+    $controller->getStatus();
+});
+$router->get('/months', function(){
+    $controller = new OrderController();
+    $controller->getMonths();
+});

@@ -21,7 +21,10 @@ class OrderController
 
     public function orderByMonthCreatedAt($month)
     {
-        $orders = $this->orderModel->getOrdersByMonthCreated($month);
+        $orders = $this->orderModel->getAllOrders();
+        if ($month != 0) {
+            $orders = $this->orderModel->getOrdersByMonthCreated($month);
+        }
         echo json_encode($orders);
     }
 
@@ -29,5 +32,17 @@ class OrderController
     {
         $orders = $this->orderModel->getOrdersByStatus($status);
         echo json_encode($orders);
+    }
+
+    public function getStatus()
+    {
+        $status = $this->orderModel->getStatusLists();
+        echo json_encode($status);
+    }
+
+    public function getMonths()
+    {
+        $months = $this->orderModel->getMonths();
+        echo json_encode($months);
     }
 }
